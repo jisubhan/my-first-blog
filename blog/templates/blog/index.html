@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 {% csrf_token %}
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
@@ -111,7 +111,7 @@
 
    				<img src="{% static 'images/profile-pic1.jpg' %}" alt="Profile Picture">
 
-   				<p class="lead">I am a student of Chungbuk National University majoring Computer Science. Now I'm on third grade. I have spent time that I can experience lots of areas like computer, English, piano, swimming somethings like that. The point is everything that I have earned from these.</p>
+   				<p class="lead">{{ post.text|linebreaksbr }}I am a student of Chungbuk National University majoring Computer Science. Now I'm on third grade. I have spent time that I can experience lots of areas like computer, English, piano, swimming somethings like that. The point is everything that I have earned from these.</p>
    			</div>   			
 
    		</div>   		
@@ -186,7 +186,10 @@
 
    	<div class="row button-section">
    		<div class="col-twelve">
-   			<a href="#contact" title="Edit" class="button stroke smoothscroll">Edit Content</a>
+            {% block content %}
+            {% endblock %}
+           
+            
    		</div>   		
    	</div>
 
